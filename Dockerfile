@@ -1,12 +1,14 @@
 # Drush Docker Container
 FROM drush/drush:base
-MAINTAINER Stelios Stigter <stelios@oceanshade.dev>
+MAINTAINER Rob Loach <robloach@gmail.com>
 
 # Set the Drush version.
 ENV DRUSH_VERSION 10.*
 
-# Install Drush using Composer.
-RUN composer global require drush/drush:"$DRUSH_VERSION" --prefer-dist
+# Install Drush 8 with the phar file.
+RUN curl -fsSL -o /usr/local/bin/drush "https://github.com/drush-ops/drush/releases/download/$DRUSH_VERSION/drush.phar" && \
+  chmod +x /usr/local/bin/drush
 
-# Display which version of Drush was installed.
-RUN drush --version
+# Test your install.
+RUN drush core-status
+
