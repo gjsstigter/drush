@@ -9,7 +9,7 @@ ENV DRUSH_VERSION 10.2.1
 RUN wget "https://github.com/drush-ops/drush/archive/$DRUSH_VERSION.zip" && \
   unzip $DRUSH_VERSION.zip -d ~/drush/ && \
   mv ~/drush/drush-$DRUSH_VERSION/* /usr/bin/ && \
-  chmod +x ~/drush/drush-$DRUSH_VERSION/drush
+  chmod +x /usr/bin/drush
 
 # Test your install.
 RUN drush core-status
