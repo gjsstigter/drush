@@ -1,6 +1,6 @@
 # Drush Docker Container
 FROM drush/drush:base
-MAINTAINER Rob Loach <robloach@gmail.com>
+MAINTAINER Stelios Stigter <stelios@oceanshade.dev>
 
 # Set the Drush version.
 ENV DRUSH_VERSION 10.2.1
